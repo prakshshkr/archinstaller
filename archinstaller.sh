@@ -7,18 +7,3 @@ mount /dev/sdb2 /mnt
 pacstrap /mnt base linux linux-firmware vim nano
 genfstab -U /mnt >> /mnt/etc/fstab
 arch-chroot /mnt
-timedatectl set-timezone America/Detroit
-locale-gen
-echo LANG=en_GB.UTF-8 > /etc/locale.conf
-export LANG=en_GB.UTF-8
-echo myarch > /etc/hostname
-touch /etc/hosts
-echo "127.0.0.1	localhost" >> /etc/hosts
-echo "::1		localhost" >> /etc/hosts
-echo "127.0.1.1	myarch" >> /etc/hosts
-echo -e "kali\nkali" | passwd
-pacman -S grub efibootmgr
-mkdir /boot/efi
-mount /dev/sdb1 /boot/efi
-grub-install --target=x86_64-efi --bootloader-id=GRUB --efi-directory=/boot/efi
-grub-mkconfig -o /boot/grub/grub.cfg
