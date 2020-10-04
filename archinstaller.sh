@@ -1,5 +1,5 @@
-mkfs.fat -F32 /dev/sda1
-mkfs.ext4 /dev/sda2
+mkfs.fat -F32 /dev/sdb1
+mkfs.ext4 /dev/sdb2
 pacman -Syy
 pacman -S --noconfirm reflector
 cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bak
